@@ -1,10 +1,10 @@
 {
-  "name": "@levelio/font-finder",
+  "name": "@levelii/font-finder",
   "version": "0.0.0",
   "main": "index.js",
   "types": "index.d.ts",
   "napi": {
-    "name": "@levelio/font-finder",
+    "name": "@levelii/font-finder",
     "triples": {
       "additional": [
         "aarch64-pc-windows-msvc",
