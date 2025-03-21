@@ -5,6 +5,7 @@ use parking_lot::Mutex;
 use std::collections::HashMap;
 use std::sync::Arc;
 
+#[derive(Clone)]
 pub struct FontService {
   source: Arc<Mutex<SystemSource>>,
   font_cache: Arc<Mutex<HashMap<String, Vec<FontDescriptor>>>>,
