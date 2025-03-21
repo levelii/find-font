@@ -3,10 +3,11 @@ mod tests {
   use crate::services::font_service::FontService;
 
   // Test getting all font families
-  #[tokio::test]
-  async fn test_all_families() {
+  #[test]
+  fn test_all_families() {
     let service = FontService::new();
-    let families = service.all_families().await.unwrap();
+    let rt = tokio::runtime::Runtime::new().unwrap();
+    let families = rt.block_on(service.all_families()).unwrap();
 
     // Verify that the returned font family list is not empty
     assert!(!families.is_empty(), "Should find at least one font family");
@@ -18,18 +19,18 @@ mod tests {
   }
 
   // Test getting all fonts for a specific font family
-  #[tokio::test]
-  async fn test_get_font() {
+  #[test]
+  fn test_get_font() {
     let service = FontService::new();
+    let rt = tokio::runtime::Runtime::new().unwrap();
 
     // First get a known existing font family
-    let families = service.all_families().await.unwrap();
+    let families = rt.block_on(service.all_families()).unwrap();
     let test_family = families[0].clone();
 
     // Test getting all fonts for this family
-    let fonts = service
-      .get_family_variants(test_family.clone())
-      .await
+    let fonts = rt
+      .block_on(service.get_family_variants(test_family.clone()))
       .unwrap();
     assert!(
       !fonts.is_empty(),
@@ -47,12 +48,11 @@ mod tests {
   }
 
   // Test getting a nonexistent font family
-  #[tokio::test]
-  async fn test_get_nonexistent_font() {
+  #[test]
+  fn test_get_nonexistent_font() {
     let service = FontService::new();
-    let result = service
-      .get_family_variants("NonexistentFont".to_string())
-      .await;
+    let rt = tokio::runtime::Runtime::new().unwrap();
+    let result = rt.block_on(service.get_family_variants("NonexistentFont".to_string()));
 
     // Verify that it returns an error
     assert!(
