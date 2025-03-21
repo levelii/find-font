@@ -12,11 +12,11 @@ A high-performance font discovery library for Node.js, written in Rust.
 ## Installation
 
 ```bash
-npm install @levelio/font-finder
+npm install @levelii/font-finder
 # or
-yarn add @levelio/font-finder
+yarn add @levelii/font-finder
 # or
-pnpm add @levelio/font-finder
+pnpm add @levelii/font-finder
 ```
 
 ## API

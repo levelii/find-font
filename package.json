@@ -4,7 +4,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "napi": {
-    "name": "@levelii/font-finder",
+    "name": "font-finder",
     "triples": {
       "additional": [
         "aarch64-pc-windows-msvc",
@@ -31,6 +31,5 @@
     "test": "ava",
     "universal": "napi universal",
     "version": "napi version"
-  },
-  "packageManager": "yarn@4.6.0"
+  }
 }

@@ -12,11 +12,11 @@
 ## 安装
 
 ```bash
-npm install @levelio/font-finder
+npm install @levelii/font-finder
 # or
-yarn add @levelio/font-finder
+yarn add @levelii/font-finder
 # or
-pnpm add 
+pnpm add @levelii/font-finder
 ```
 
 ## API
